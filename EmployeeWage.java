@@ -14,4 +14,13 @@ public class EmployeeWage {
             System.out.println("Employee is Absent");
         }
     }
+    public static void dailyWage() {
+
+    int wagePerHour = 20;
+    int fullDayHours = 8;
+
+    int salary = wagePerHour * fullDayHours;
+
+    System.out.println("Daily Wage = " + salary);
+}
 }
