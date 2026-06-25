@@ -6,7 +6,7 @@ public class EmployeeWageMain {
 
         EmployeeWage wage = new EmployeeWage();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("1. Check Attendance\n2. Calculate Daily Wage \n3.Exit");
+        System.out.println("1. Check Attendance\n2. Calculate Daily Wage \n3. Part Time Wage \n4. Exit");
         System.out.print("Enter your choice: ");
         int choice=scanner.nextInt();
 
@@ -18,6 +18,9 @@ public class EmployeeWageMain {
                 wage.dailyWage();
                 break;
             case 3:
+                wage.partTimeWage();
+                break;
+            case 4:
                 System.out.println("Exiting...");
                 System.exit(0);
             default:

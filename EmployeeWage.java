@@ -23,4 +23,14 @@ public class EmployeeWage {
 
     System.out.println("Daily Wage = " + salary);
 }
+public static void partTimeWage() {
+
+    int wagePerHour = 20;
+    int partTimeHours = 4;
+
+    int salary = wagePerHour * partTimeHours;
+
+    System.out.println("Part Time Wage = " + salary);
+}
+
 }
