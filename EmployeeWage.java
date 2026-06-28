@@ -32,5 +32,32 @@ public static void partTimeWage() {
 
     System.out.println("Part Time Wage = " + salary);
 }
+public static void employeeWage() {
+
+    final int FULL_TIME = 1;
+    final int PART_TIME = 2;
+
+    int empCheck = (int)(Math.random() * 3);
+
+    int empHours = 0;
+
+    switch (empCheck) {
+
+        case FULL_TIME:
+            empHours = 8;
+            break;
+
+        case PART_TIME:
+            empHours = 4;
+            break;
+
+        default:
+            empHours = 0;
+    }
+
+    int wage = empHours * 20;
+
+    System.out.println("Employee Wage = " + wage);
+}
 
 }
