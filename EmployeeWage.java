@@ -97,8 +97,6 @@ public static void employeeWage() {
 
         System.out.println("Monthly Wage = " + totalWage);
     }
-
-
     // UC6 : Calculate Wage Till 100 Hours or 20 Days
     public static void calculateWageTillCondition() {
 
