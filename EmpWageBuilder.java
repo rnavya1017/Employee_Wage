@@ -1,36 +1,37 @@
 public class EmpWageBuilder {
 
-    // Instance Variables
-    private String company;
-    private int empRatePerHour;
-    private int numOfWorkingDays;
-    private int maxHoursPerMonth;
-    private int totalEmpWage;
-
-    // Constants
     private static final int IS_FULL_TIME = 1;
     private static final int IS_PART_TIME = 2;
 
-    // Constructor
-    public EmpWageBuilder(String company,
-                          int empRatePerHour,
-                          int numOfWorkingDays,
-                          int maxHoursPerMonth) {
+    private CompanyEmpWage[] companyArray;
+    private int numOfCompanies;
 
-        this.company = company;
-        this.empRatePerHour = empRatePerHour;
-        this.numOfWorkingDays = numOfWorkingDays;
-        this.maxHoursPerMonth = maxHoursPerMonth;
+    public EmpWageBuilder(int size) {
+        companyArray = new CompanyEmpWage[size];
+        numOfCompanies = 0;
     }
 
-    // Method to compute wage
-    public void computeEmpWage() {
+    public void addCompanyEmpWage(String company,
+                                  int empRatePerHour,
+                                  int numOfWorkingDays,
+                                  int maxHoursPerMonth) {
+
+        companyArray[numOfCompanies] =
+                new CompanyEmpWage(company,
+                                   empRatePerHour,
+                                   numOfWorkingDays,
+                                   maxHoursPerMonth);
+
+        numOfCompanies++;
+    }
+
+    public void computeEmpWage(CompanyEmpWage company) {
 
         int totalEmpHours = 0;
         int totalWorkingDays = 0;
 
-        while (totalEmpHours <= maxHoursPerMonth &&
-                totalWorkingDays < numOfWorkingDays) {
+        while (totalEmpHours <= company.maxHoursPerMonth &&
+               totalWorkingDays < company.numOfWorkingDays) {
 
             totalWorkingDays++;
 
@@ -55,16 +56,19 @@ public class EmpWageBuilder {
             totalEmpHours += empHours;
         }
 
-        totalEmpWage = totalEmpHours * empRatePerHour;
+        int totalEmpWage =
+                totalEmpHours * company.empRatePerHour;
+
+        company.setTotalEmpWage(totalEmpWage);
     }
 
-    // Method to display result
-    public void printEmpWage() {
-        System.out.println("Company Name : " + company);
-        System.out.println("Employee Rate Per Hour : " + empRatePerHour);
-        System.out.println("Working Days : " + numOfWorkingDays);
-        System.out.println("Maximum Hours : " + maxHoursPerMonth);
-        System.out.println("Total Wage : " + totalEmpWage);
-        System.out.println("-----------------------------");
+    public void computeAllWages() {
+
+        for (int i = 0; i < numOfCompanies; i++) {
+
+            computeEmpWage(companyArray[i]);
+
+            System.out.println(companyArray[i]);
+        }
     }
 }
