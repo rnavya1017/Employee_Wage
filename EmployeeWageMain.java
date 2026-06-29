@@ -6,7 +6,7 @@ public class EmployeeWageMain {
 
         EmployeeWage wage = new EmployeeWage();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("1. Check Attendance\n2. Calculate Daily Wage \n3. Part Time Wage \n4.Employee Wage \n5. Calculate Monthly Wage \n 6. Calculate Total Wage \n7. Exit");
+        System.out.println("1. Check Attendance\n2. Calculate Daily Wage \n3. Part Time Wage \n4.Employee Wage \n5. Calculate Monthly Wage \n 6. Calculate Total Wage \n7. Compute Wage Till Condition \n8. Exit");
         System.out.print("Enter your choice: ");
         int choice=scanner.nextInt();
 
@@ -31,6 +31,9 @@ public class EmployeeWageMain {
                 wage.calculateWageTillCondition();
                 break;
             case 7:
+                wage.computeEmpWage();
+                break;
+            case 8:
                 System.out.println("Exiting...");
                 System.exit(0);
             default:
